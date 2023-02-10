@@ -21,11 +21,20 @@ public class PlayerController : MonoBehaviour
     //Variable para saber si podemos hacer doble salto
     private bool canDoubleJump;
 
+    //Referencia al Animator del jugador
+    private Animator anim;
+    //Referencia al SpriteRenderer del jugador
+    private SpriteRenderer theSR;
+
     // Start is called before the first frame update
     void Start()
     {
         //Inicializamos el RigidBody del jugador
         theRB = GetComponent<Rigidbody2D>();
+        //Rellenamos la referencia del Animator del jugador, porque accedemos a ese componente del jugador usando GetComponent
+        anim = GetComponent<Animator>();
+        //Rellenamos la referencia del SpriteRenderer del jugador
+        theSR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -61,5 +70,25 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        //Girar el sprite del jugador según su dirección de movimiento
+        //Si el jugador se mueve hacia la izquierda
+        if (theRB.velocity.x < 0)
+        {
+            //No cambiamos la dirección del sprite
+            theSR.flipX = false;
+        }
+        //Si el jugador por el contrario se está moviendo hacia la derecha
+        else if (theRB.velocity.x > 0)
+        {
+            //Cambiamos la dirección del sprite
+            theSR.flipX = true;
+        }
+
+        //ANIMACIONES DEL JUGADOR
+        //Cambiamos el valor del parámetro del Animator "moveSpeed", dependiendo del valor en X de la velocidad de Rigidbody
+        anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));//Mathf.Abs hace que un valor negativo sea positivo, lo que nos permite que al movernos a la izquierda también se anime esta acción
+        //Cambiamos el valor del parámetro del Animator "isGrounded", dependiendo del valor de la booleana del código "isGrounded"
+        anim.SetBool("isGrounded", isGrounded);
     }
 }
