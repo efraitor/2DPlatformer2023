@@ -25,8 +25,9 @@ public class CameraController : MonoBehaviour
         lastPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    // LateUpdate is called once per frame, y los LateUpdate se hacen después de todos los Update.
+    //Con lo cuál evitamos problemas de tirones de la cámara
+    void LateUpdate()
     {
         //La cámara sigue al jugador sin variar su posición Z
         //transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
