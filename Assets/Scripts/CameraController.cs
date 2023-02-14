@@ -13,13 +13,16 @@ public class CameraController : MonoBehaviour
     public float minHeight, maxHeight;
 
     //Variable donde guardar la última posición en X que tuvo el jugador
-    private float lastXPos;
+    //private float lastXPos;
+    //Referencia a la última posición del jugador en X e Y
+    private Vector2 lastPos;
 
     // Start is called before the first frame update
     void Start()
     {
         //Al empezar el juego la última posición del jugador será la actual
-        lastXPos = transform.position.x;
+        //lastXPos = transform.position.x;
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
@@ -37,11 +40,15 @@ public class CameraController : MonoBehaviour
 
 
         //Variable que me permite conocer cuanto hay que moverse en X
-        float amountToMoveX = transform.position.x - lastXPos;
+        //float amountToMoveX = transform.position.x - lastXPos;
+        Vector2 amountToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
 
-        farBackground.position = farBackground.position + new Vector3(amountToMoveX, 0f, 0f);
-        middleBackground.position += new Vector3(amountToMoveX * .5f, 0f, 0f);
+        //farBackground.position = farBackground.position + new Vector3(amountToMoveX, 0f, 0f);
+        farBackground.position = farBackground.position + new Vector3(amountToMove.x, amountToMove.y, 0f);
+        //middleBackground.position += new Vector3(amountToMoveX * .5f, 0f, 0f);
+        middleBackground.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * .5f;
 
-        lastXPos = transform.position.x;
+        //lastXPos = transform.position.x;
+        lastPos = transform.position;
     }
 }
