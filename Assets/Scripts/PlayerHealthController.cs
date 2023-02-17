@@ -74,6 +74,9 @@ public class PlayerHealthController : MonoBehaviour
             invincibleCounter = invincibleLength;
             //Cambiamos el color del sprite, mantenemos el RGB y ponemos la opacidad a la mitad
             theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
+
+            //Llamamos al método que hace que el jugador realice el KnockBack
+            PlayerController.sharedInstance.KnockBack();
         }
 
         //Actualizamos la UI

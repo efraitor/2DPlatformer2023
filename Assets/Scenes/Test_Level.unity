@@ -7825,6 +7825,14 @@ PrefabInstance:
       propertyPath: invincibleLength
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8120566957803405641, guid: 9096e31908c10f24bb10baf2c1919129, type: 3}
+      propertyPath: knockBackForce
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120566957803405641, guid: 9096e31908c10f24bb10baf2c1919129, type: 3}
+      propertyPath: knockBackLength
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8120566957803405644, guid: 9096e31908c10f24bb10baf2c1919129, type: 3}
       propertyPath: m_RootOrder
       value: 4
