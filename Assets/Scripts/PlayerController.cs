@@ -136,5 +136,8 @@ public class PlayerController : MonoBehaviour
         knockBackCounter = knockBackLength;
         //Paralizamos en X al jugador y hacemos que salte en Y
         theRB.velocity = new Vector2(0f, knockBackForce);
+
+        //Activamos el trigger del animator
+        anim.SetTrigger("hurt");
     }
 }

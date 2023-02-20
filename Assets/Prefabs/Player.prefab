@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8120566959238310733}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8120566957803405645
 SpriteRenderer:
@@ -145,6 +145,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  knockBackLength: 0.25
+  knockBackForce: 8
 --- !u!95 &8120566957803405640
 Animator:
   serializedVersion: 4
@@ -179,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
+  invincibleLength: 1
 --- !u!1 &8120566959238310734
 GameObject:
   m_ObjectHideFlags: 0
