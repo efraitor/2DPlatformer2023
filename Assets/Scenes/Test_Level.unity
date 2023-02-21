@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a7925d4e317f847aaf6b894a312288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitToRespawn: 0
+  waitToRespawn: 2
 --- !u!1 &220791410
 GameObject:
   m_ObjectHideFlags: 0
