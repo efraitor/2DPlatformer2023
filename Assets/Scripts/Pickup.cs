@@ -10,6 +10,9 @@ public class Pickup : MonoBehaviour
     //Variable para conocer si un objeto ya ha sido recogido
     private bool isCollected;
 
+    //Referencia al objeto que aparecerá para representar el efecto de coger un item
+    public GameObject pickupEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,10 @@ public class Pickup : MonoBehaviour
                 LevelManager.sharedInstance.gemCollected++;
                 //El objeto ha sido recogido
                 isCollected = true;
+                //Actualizamos el contador de gemas
+                UIController.sharedInstance.UpdateGemCount();
+                //Instanciamos el efecto de recoger el item
+                Instantiate(pickupEffect, transform.position, transform.rotation);//Le pasamos el objeto a instanciar, su posición, su rotación
                 //Destruimos el Game Object
                 Destroy(gameObject);
             }
@@ -49,7 +56,9 @@ public class Pickup : MonoBehaviour
                 PlayerHealthController.sharedInstance.HealPlayer();
                 //El objeto ha sido recogido
                 isCollected = true;
-                                                                                //Destruimos el objeto
+                //Instanciamos el efecto de recoger el item
+                Instantiate(pickupEffect, transform.position, transform.rotation);//Le pasamos el objeto a instanciar, su posición, su rotación
+                //Destruimos el objeto
                 Destroy(gameObject);
             }
 
