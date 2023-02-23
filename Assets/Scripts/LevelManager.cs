@@ -7,6 +7,9 @@ public class LevelManager : MonoBehaviour
     //Tiempo antes de respawnear
     public float waitToRespawn;
 
+    //Variable para el contador de gemas
+    public int gemCollected;
+
     //Hacemos el Singleton de este script
     public static LevelManager sharedInstance;
 
