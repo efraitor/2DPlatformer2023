@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     //Referencia al SpriteRenderer del jugador
     private SpriteRenderer theSR;
 
+    //Variable para conocer hacia donde mira el jugador
+    public bool isLeft;
+
     //Hacemos el Singleton de este script
     public static PlayerController sharedInstance;
 
@@ -95,12 +98,16 @@ public class PlayerController : MonoBehaviour
             {
                 //No cambiamos la dirección del sprite
                 theSR.flipX = false;
+                //El jugador mira a la izquierda
+                isLeft = true;
             }
             //Si el jugador por el contrario se está moviendo hacia la derecha
             else if (theRB.velocity.x > 0)
             {
                 //Cambiamos la dirección del sprite
                 theSR.flipX = true;
+                //El jugador mira a la derecha
+                isLeft = false;
             }
         }
         //Si el contador de KnockBack todavía no está vacío

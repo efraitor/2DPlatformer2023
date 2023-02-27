@@ -58,38 +58,43 @@ public class PlayerHealthController : MonoBehaviour
     //Método para manejar el daño
     public void DealWithDamage()
     {
-        //Restamos 1 de la vida que tengamos
-        currentHealth--; //currentHealth -= 1; currentHealth = currentHealth - 1;
-
-        //Si la vida está en 0 o por debajo (para asegurarnos de tener en cuenta solo valores positivos)
-        if (currentHealth <= 0)
+        //Si el contador de tiempo de invencibilidad se ha agotado, es decir, ya no somos invencibles
+        if (invincibleCounter <= 0)
         {
-            //Hacemos cero la vida si fuera negativa
-            currentHealth = 0;
 
-            //Hacemos desaparecer de momento al jugador
-            //gameObject.SetActive(false);
+            //Restamos 1 de la vida que tengamos
+            currentHealth--; //currentHealth -= 1; currentHealth = currentHealth - 1;
 
-            //Instanciamos el efecto de muerte del jugador
-            Instantiate(deathEffect, transform.position, transform.rotation);
+            //Si la vida está en 0 o por debajo (para asegurarnos de tener en cuenta solo valores positivos)
+            if (currentHealth <= 0)
+            {
+                //Hacemos cero la vida si fuera negativa
+                currentHealth = 0;
 
-            //Llamamos al método que respawnea al jugador
-            LevelManager.sharedInstance.RespawnPlayer();
+                //Hacemos desaparecer de momento al jugador
+                //gameObject.SetActive(false);
+
+                //Instanciamos el efecto de muerte del jugador
+                Instantiate(deathEffect, transform.position, transform.rotation);
+
+                //Llamamos al método que respawnea al jugador
+                LevelManager.sharedInstance.RespawnPlayer();
+            }
+            //Si el jugador ha recibido daño pero no ha muerto
+            else
+            {
+                //Inicializamos el contador de invencibilidad
+                invincibleCounter = invincibleLength;
+                //Cambiamos el color del sprite, mantenemos el RGB y ponemos la opacidad a la mitad
+                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
+
+                //Llamamos al método que hace que el jugador realice el KnockBack
+                PlayerController.sharedInstance.KnockBack();
+            }
+
+            //Actualizamos la UI
+            UIController.sharedInstance.UpdateHealthDisplay();
         }
-        //Si el jugador ha recibido daño pero no ha muerto
-        else
-        {
-            //Inicializamos el contador de invencibilidad
-            invincibleCounter = invincibleLength;
-            //Cambiamos el color del sprite, mantenemos el RGB y ponemos la opacidad a la mitad
-            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
-
-            //Llamamos al método que hace que el jugador realice el KnockBack
-            PlayerController.sharedInstance.KnockBack();
-        }
-
-        //Actualizamos la UI
-        UIController.sharedInstance.UpdateHealthDisplay();
     }
 
     //Método para curar al jugador
