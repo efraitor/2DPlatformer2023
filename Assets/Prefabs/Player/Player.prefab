@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980e4f366ab07d44992642e2f94b7652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectible: {fileID: 6437739154318743352, guid: 258509b482dae484faa4b68df02c26af, type: 3}
+  chanceToDrop: 25
 --- !u!1 &8120566957803405646
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpForce: 12
+  bounceForce: 8
   groundCheckPoint: {fileID: 8120566959238310733}
   whatIsGround:
     serializedVersion: 2

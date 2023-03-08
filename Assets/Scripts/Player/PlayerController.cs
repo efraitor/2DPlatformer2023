@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D theRB;
     //Fuerza de salto del jugador
     public float jumpForce;
+    //Fuerza de rebote sobre enemigos
+    public float bounceForce;
 
     //Variable para saber si el jugador está en el suelo
     private bool isGrounded;
@@ -146,5 +148,12 @@ public class PlayerController : MonoBehaviour
 
         //Activamos el trigger del animator
         anim.SetTrigger("hurt");
+    }
+
+    //Método para que el jugador rebote 
+    public void Bounce()
+    {
+        //Impulsamos al jugador rebotando
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
     }
 }
