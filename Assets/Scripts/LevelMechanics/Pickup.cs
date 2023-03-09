@@ -58,6 +58,8 @@ public class Pickup : MonoBehaviour
                 PlayerHealthController.sharedInstance.HealPlayer();
                 //El objeto ha sido recogido
                 isCollected = true;
+                //Llamamos al sonido de recoger una cura
+                AudioManager.sharedInstance.PlaySFX(7);
                 //Instanciamos el efecto de recoger el item
                 Instantiate(pickupEffect, transform.position, transform.rotation);//Le pasamos el objeto a instanciar, su posición, su rotación
                 //Destruimos el objeto

@@ -90,6 +90,9 @@ public class PlayerHealthController : MonoBehaviour
 
                 //Llamamos al método que hace que el jugador realice el KnockBack
                 PlayerController.sharedInstance.KnockBack();
+
+                //Llamamos al sonido de hacerle daño al jugador
+                AudioManager.sharedInstance.PlaySFX(9);
             }
 
             //Actualizamos la UI

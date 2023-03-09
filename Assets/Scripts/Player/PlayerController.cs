@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                     //Una vez en el suelo, reactivamos la posibilidad de doble salto
                     canDoubleJump = true;
+                    //Llamamos al sonido de saltar
+                    AudioManager.sharedInstance.PlaySFX(10);
                 }
                 //Si el jugador no está en el suelo
                 else
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour
                         theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                         //Hacemos que no se pueda volver a saltar de nuevo
                         canDoubleJump = false;
+                        //Llamamos al sonido de saltar
+                        AudioManager.sharedInstance.PlaySFX(10);
                     }
                 }
             }
@@ -155,5 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         //Impulsamos al jugador rebotando
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+        //Llamamos al sonido de saltar
+        AudioManager.sharedInstance.PlaySFX(10);
     }
 }

@@ -26,15 +26,17 @@ public class Checkpoint : MonoBehaviour
     //Método para conocer cuando el jugador entra en la zona de checkpoint
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Si es el jugador el que ha entrado en la zona de Checkpoint
-        if (collision.CompareTag("Player"))
+        //Si es el jugador el que ha entrado en la zona de Checkpoint y el Checkpoint estaba inactivo
+        if (collision.CompareTag("Player") && theSR.sprite == cpOff)
         {
             //Desactivamos primero todos los checkpoints
             CheckpointController.sharedInstance.DeactivateCheckpoints();
-
+            
             //Cambiamos el sprite a Checkpoint activo
             theSR.sprite = cpOn;
-
+            //Llamamos al sonido de Checkpoint
+            AudioManager.sharedInstance.PlaySFX(11);
+         
             //Le pasamos al CheckpointController la nueva posición de reaparición
             CheckpointController.sharedInstance.SetSpawnPoint(transform.position);
         }
