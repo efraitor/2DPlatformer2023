@@ -59,7 +59,10 @@ public class PauseMenu : MonoBehaviour
     //Método para el botón LevelSelect
     public void LevelSelect()
     {
-        
+        //Para ir a la escena LevelSelect
+        SceneManager.LoadScene(levelSelect);
+        //Reanudamos realmente el tiempo de juego
+        Time.timeScale = 1f;
     }
 
     //Método para el botón MainMenu
@@ -67,5 +70,7 @@ public class PauseMenu : MonoBehaviour
     {
         //Para ir a la escena MainMenu
         SceneManager.LoadScene(mainMenu);
+        //Reanudamos realmente el tiempo de juego
+        Time.timeScale = 1f;
     }
 }
