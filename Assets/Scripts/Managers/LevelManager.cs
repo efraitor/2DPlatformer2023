@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //Para cambiar entre escenas
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class LevelManager : MonoBehaviour
 
     //Variable para el contador de gemas
     public int gemCollected;
+
+    //Variable para guardar el nombre del nivel al que queremos ir
+    public string levelToLoad;
 
     //Hacemos el Singleton de este script
     public static LevelManager sharedInstance;
@@ -63,5 +67,36 @@ public class LevelManager : MonoBehaviour
         PlayerHealthController.sharedInstance.currentHealth = PlayerHealthController.sharedInstance.maxHealth;
         //Actualizamos la UI
         UIController.sharedInstance.UpdateHealthDisplay();
+    }
+
+    //Método para terminar un nivel
+    public void ExitLevel()
+    {
+        //Llamamos a la corrutina
+        StartCoroutine(ExitLevelCo());
+    }
+
+    //Corrutina de terminar un nivel
+    private IEnumerator ExitLevelCo()
+    {
+        //Paramos los inputs del jugador
+        PlayerController.sharedInstance.stopInput = true;
+        //Paramos el movimiento del jugador
+        PlayerController.sharedInstance.StopPlayer();
+        //Paramos la música del nivel
+        AudioManager.sharedInstance.bgm.Stop();
+        //Reproducimos la música de ganar el nivel
+        AudioManager.sharedInstance.levelEndMusic.Play();
+        //Mostramos el cartel de haber finalizado el nivel
+        UIController.sharedInstance.levelCompleteText.gameObject.SetActive(true);
+        //Esperamos un tiempo determinado
+        yield return new WaitForSeconds(1.5f);
+        //Fundido a negro
+        UIController.sharedInstance.FadeToBlack();
+        //Esperamos un tiempo determinado
+        yield return new WaitForSeconds(1.5f);
+
+        //Ir a la pantalla de carga
+        SceneManager.LoadScene(levelToLoad);
     }
 }

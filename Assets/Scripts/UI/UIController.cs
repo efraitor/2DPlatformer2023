@@ -22,6 +22,9 @@ public class UIController : MonoBehaviour
     //Variables para conocer cuando hacemos fundido a negro o vuelta a transparente
     private bool shouldFadeToBlack, shouldFadeFromBlack;
 
+    //Referencia al texto de completar el nivel
+    public TextMeshProUGUI levelCompleteText;
+
     //Hacemos el Singleton de este script
     public static UIController sharedInstance;
 

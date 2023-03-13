@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     //Fuerza de rebote sobre enemigos
     public float bounceForce;
 
+    //Variable para detener al jugador
+    public bool stopInput;
+
     //Variable para saber si el jugador está en el suelo
     private bool isGrounded;
     //Punto por debajo del jugador que tomamos como referencia para detectar el suelo
@@ -63,8 +66,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Si el juego está pausado, no funciona el movimiento
-        if (!reference.isPaused)
+        //Si el juego está pausado, no funciona el movimiento. Tampoco si el jugador está parado
+        if (!reference.isPaused && !stopInput)
         {
             //Si el contador de KnockBack se ha vaciado, el jugador recupera el control del movimiento
             if (knockBackCounter <= 0)
@@ -167,5 +170,11 @@ public class PlayerController : MonoBehaviour
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
         //Llamamos al sonido de saltar
         AudioManager.sharedInstance.PlaySFX(10);
+    }
+
+    //Método para parar al jugador
+    public void StopPlayer()
+    {
+        theRB.velocity = Vector2.zero;
     }
 }
