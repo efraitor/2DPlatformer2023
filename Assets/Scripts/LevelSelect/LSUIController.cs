@@ -12,6 +12,9 @@ public class LSUIController : MonoBehaviour
     //Variables para conocer cuando hacemos fundido a negro o vuelta a transparente
     private bool shouldFadeToBlack, shouldFadeFromBlack;
 
+    //Referencia al panel de información del selector de niveles
+    public GameObject levelInfoPanel;
+
     //Hacemos el Singleton de este script
     public static LSUIController sharedInstance;
 
@@ -74,5 +77,19 @@ public class LSUIController : MonoBehaviour
         shouldFadeFromBlack = true;
         //Desactivamos la booleana de fundido a negro
         shouldFadeToBlack = false;
+    }
+
+    //Método para mostrar el panel de información del nivel
+    public void ShowInfo(MapPoint levelInfo) //Al llamar al método le pasamos un punto concreto del mapa por parámetro
+    {   
+        //Activamos el panel
+        levelInfoPanel.SetActive(true);
+    }
+
+    //Método para ocultar el panel de información del nivel
+    public void HideInfo()
+    {
+        //Desactivamos el panel
+        levelInfoPanel.SetActive(false);
     }
 }
