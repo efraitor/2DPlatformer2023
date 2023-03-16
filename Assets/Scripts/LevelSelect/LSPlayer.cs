@@ -9,10 +9,14 @@ public class LSPlayer : MonoBehaviour
     //Velocidad de movimiento del jugador
     public float moveSpeed = 10f;
 
+    //Referencia al LSManager para poder acceder a su información
+    private LSManager theManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Inicializamos la referencia, buscando un objeto que tenga el Script de LSManager
+        theManager = FindObjectOfType<LSManager>();
     }
 
     // Update is called once per frame
@@ -68,6 +72,13 @@ public class LSPlayer : MonoBehaviour
                     //Cambiaríamos el punto actual por el de abajo
                     SetNextPoint(currentPoint.down);
                 }
+            }
+
+            //Si pulsamos el botón de salto
+            if (Input.GetButtonDown("Jump"))
+            {
+                //Llamamos al método que carga el nivel
+                theManager.LoadLevel();
             }
         }
     }
