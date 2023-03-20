@@ -96,6 +96,39 @@ public class LevelManager : MonoBehaviour
         //Esperamos un tiempo determinado
         yield return new WaitForSeconds(1.5f);
 
+        //Si existe la Key de gemas recogidas en este nivel
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gems"))
+        {
+            //Si esta vez hemos recogido más gemas que la vez anterior
+            if (gemCollected > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_gems"))
+            {
+                //Guardamos el número de gemas recogidas en este nivel concreto
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemCollected);
+            }
+        }
+        //Sin embargo si es la primera vez que nos pasamos este nivel
+        else
+        {
+            //Guardamos el número de gemas recogidas en este nivel concreto
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemCollected);
+        }
+        //Si existe la Key de tiempo hecho en este nivel
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_time"))
+        {
+            //Si esta vez hemos hecho menos tiempo que la vez anterior
+            if (timeInLevel < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "_time"))
+            {
+                //Guardamos el tiempo hecho en este nivel concreto
+                PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel);
+            }
+        }
+        //Sin embargo si es la primera vez que nos pasamos este nivel
+        else
+        {
+            //Guardamos el tiempo hecho en este nivel concreto
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel);
+        }
+
         //Ir a la pantalla de carga
         SceneManager.LoadScene(levelToLoad);
     }
