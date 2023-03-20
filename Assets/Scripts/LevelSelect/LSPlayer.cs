@@ -74,11 +74,18 @@ public class LSPlayer : MonoBehaviour
                 }
             }
 
-            //Si pulsamos el botón de salto
-            if (Input.GetButtonDown("Jump"))
+            //Si el MapPoint actual es un nivel y tiene un nivel que cargar
+            if (currentPoint.isLevel && currentPoint.levelToLoad != "")
             {
-                //Llamamos al método que carga el nivel
-                theManager.LoadLevel();
+                //Llamamos al método que muestra el panel de información del nivel
+                LSUIController.sharedInstance.ShowInfo(currentPoint);
+
+                //Si pulsamos el botón de salto
+                if (Input.GetButtonDown("Jump"))
+                {
+                    //Llamamos al método que carga el nivel
+                    theManager.LoadLevel();
+                }
             }
         }
     }
@@ -88,5 +95,7 @@ public class LSPlayer : MonoBehaviour
     {
         //El punto actual ahora será el pasado por parámetro
         currentPoint = nextPoint;
+        //Llamamos al método que oculta la información del nivel
+        LSUIController.sharedInstance.HideInfo();
     }
 }
