@@ -14,6 +14,10 @@ public class LSUIController : MonoBehaviour
 
     //Referencia al panel de información del selector de niveles
     public GameObject levelInfoPanel;
+    //Referencia al texto del nombre del nivel
+    public Text levelName;
+    //Texto de gemas recogidas en el nivel y texto de gemas que se pueden recoger en el nivel, texto de tiempo sugerido y texto de mejor tiempo hecho en el nivel
+    public Text gemsFound, gemsTarget, timeTarget, bestTime;
 
     //Hacemos el Singleton de este script
     public static LSUIController sharedInstance;
@@ -81,7 +85,28 @@ public class LSUIController : MonoBehaviour
 
     //Método para mostrar el panel de información del nivel
     public void ShowInfo(MapPoint levelInfo) //Al llamar al método le pasamos un punto concreto del mapa por parámetro
-    {   
+    {
+        //Ponemos el nombre del nivel actual
+        levelName.text = levelInfo.levelName;
+        //Ponemos el número de gemas recogidas en el nivel
+        gemsFound.text = "FOUND: " + levelInfo.gemCollected;
+        //Ponemos el número de gemas que se pueden recoger en el nivel
+        gemsTarget.text = "IN LEVEL: " + levelInfo.totalGems;
+        //Ponemos el tiempo sugerido para pasar el nivel
+        timeTarget.text = "TARGET: " + levelInfo.targetTime + "s";
+        //Si el mejor tiempo hecho en el nivel es 0
+        if (levelInfo.bestTime == 0)
+        {
+            //Ponemos un BestTime por defecto
+            bestTime.text = "BEST: ----";
+        }
+        //Si el mejor tiempo hecho en el nivel es distinto de 0
+        else
+        {
+            //Ponemos el mejor tiempo hecho en el nivel
+            bestTime.text = "BEST: " + levelInfo.bestTime.ToString("f2") + "s";
+        }
+
         //Activamos el panel
         levelInfoPanel.SetActive(true);
     }

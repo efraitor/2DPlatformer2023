@@ -993,6 +993,11 @@ MonoBehaviour:
   fadeScreen: {fileID: 275981248801453835}
   fadeSpeed: 3
   levelInfoPanel: {fileID: 165188461}
+  levelName: {fileID: 1577313048}
+  gemsFound: {fileID: 1612375242}
+  gemsTarget: {fileID: 66863753}
+  timeTarget: {fileID: 182266629}
+  bestTime: {fileID: 1940812784}
 --- !u!1 &275981249301310527
 GameObject:
   m_ObjectHideFlags: 0

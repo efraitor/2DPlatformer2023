@@ -12269,6 +12269,14 @@ PrefabInstance:
       value: 2 - The Second
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: totalGems
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: targetTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelToLoad
       value: Level1-2
       objectReference: {fileID: 0}
@@ -14659,6 +14667,14 @@ PrefabInstance:
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelName
       value: 1 - The begining
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: totalGems
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: targetTime
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelToLoad
