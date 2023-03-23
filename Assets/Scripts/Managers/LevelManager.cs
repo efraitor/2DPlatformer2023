@@ -30,13 +30,17 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Ocultamos el cartel de haber finalizado el nivel
+        UIController.sharedInstance.levelCompleteText.gameObject.SetActive(false);
+        //Inicializamos el tiempo hecho en el nivel
+        timeInLevel = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Vamos haciendo que aumente el tiempo hecho en el nivel a 1 por segundo
+        timeInLevel += Time.deltaTime;
     }
 
     //Método para respawnear al jugador cuando muere
