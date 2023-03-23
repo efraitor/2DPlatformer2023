@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
     //Variable para el contador de gemas
     public int gemCollected;
+    //Variable para guardar el tiempo hecho en el nivel
+    public float timeInLevel;
 
     //Variable para guardar el nombre del nivel al que queremos ir
     public string levelToLoad;
