@@ -6,8 +6,8 @@ public class MapPoint : MonoBehaviour
 {
     //Declaramos referencias a los MapPoints adyacentes
     public MapPoint up, right, down, left;
-    //Variable para conocer si este MapPoint es un nivel
-    public bool isLevel;
+    //Variable para conocer si este MapPoint es un nivel y si está bloqueado o no
+    public bool isLevel, isLocked;
     //variable para conocer el nivel que queremos cargar y el nivel que hay que chequear para saber si podemos entrar a este
     public string levelToLoad, levelToCheck;
     //Variable que contiene el nombre del nivel
@@ -17,6 +17,9 @@ public class MapPoint : MonoBehaviour
     public int gemCollected, totalGems;
     //Variables para el mejor tiempo conseguido en la partida y el tiempo sugerido
     public float bestTime, targetTime;
+
+    //Referenciamos las medallas de haber obtenido todas las gemas, y haber hecho un tiempo mejor que el sugerido
+    public GameObject gemBadge, timeBadge;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,31 @@ public class MapPoint : MonoBehaviour
             {
                 //Activamos la medalla de tiempo para este nivel
                 timeBadge.SetActive(true);
+            }
+
+            //Primeramente bloqueamos el nivel por defecto, antes de comprobar si está desbloqueado
+            isLocked = true;
+
+            //Si el nivel a revisar no está vacío
+            if (levelToCheck != null)
+            {
+                //Si la clave del nivel a revisar existe
+                if (PlayerPrefs.HasKey(levelToCheck + "_unlocked"))
+                {
+                    //Si esa clave tiene el valor de 1 (osea el nivel está desbloqueado)
+                    if (PlayerPrefs.GetInt(levelToCheck + "_unlocked") == 1)
+                    {
+                        //Desbloqueamos el nivel
+                        isLocked = false;
+                    }
+                }
+            }
+
+            //Si el nivel a cargar es el mismo que a comprobar (esto solo sucede en el primer nivel)
+            if (levelToLoad == levelToCheck)
+            {
+                //Desbloqueamos este nivel
+                isLocked = false;
             }
         }
     }

@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour
     }
 
     //Corrutina de terminar un nivel
-    private IEnumerator ExitLevelCo()
+    public IEnumerator ExitLevelCo()
     {
         //Paramos los inputs del jugador
         PlayerController.sharedInstance.stopInput = true;
@@ -102,6 +102,10 @@ public class LevelManager : MonoBehaviour
         //Esperamos un tiempo determinado
         yield return new WaitForSeconds(1.5f);
 
+        //Generamos en el documento de guardado una variable cuyo nombre será NombreDeLaEscena_unlocked y la iguala a 1 para indicar que está desbloqueado
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+        //Guardamos el nombre de la escena actual en la que nos encontramos
+        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetActiveScene().name);
         //Si existe la Key de gemas recogidas en este nivel
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gems"))
         {

@@ -74,8 +74,8 @@ public class LSPlayer : MonoBehaviour
                 }
             }
 
-            //Si el MapPoint actual es un nivel y tiene un nivel que cargar
-            if (currentPoint.isLevel && currentPoint.levelToLoad != "")
+            //Si el MapPoint actual es un nivel y tiene un nivel que cargar  y este nivel no está bloqueado
+            if (currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
             {
                 //Llamamos al método que muestra el panel de información del nivel
                 LSUIController.sharedInstance.ShowInfo(currentPoint);

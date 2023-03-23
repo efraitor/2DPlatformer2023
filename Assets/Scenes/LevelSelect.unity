@@ -475,17 +475,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Badge_Time
       objectReference: {fileID: 0}
+    - target: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -527,6 +531,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
   m_PrefabInstance: {fileID: 689510003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &689510005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+  m_PrefabInstance: {fileID: 689510003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &690893467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -539,17 +548,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Badge_Time
       objectReference: {fileID: 0}
+    - target: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -591,6 +604,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
   m_PrefabInstance: {fileID: 690893467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &690893469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+  m_PrefabInstance: {fileID: 690893467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &701512228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,6 +620,10 @@ PrefabInstance:
     - target: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_Name
       value: Badge_Gem
+      objectReference: {fileID: 0}
+    - target: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_RootOrder
@@ -653,6 +675,11 @@ PrefabInstance:
 --- !u!4 &701512229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+  m_PrefabInstance: {fileID: 701512228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &701512230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
   m_PrefabInstance: {fileID: 701512228}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &724606513
@@ -12457,9 +12484,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: gemBadge
+      value: 
+      objectReference: {fileID: 2048678501}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelName
       value: 2 - The Second
       objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: timeBadge
+      value: 
+      objectReference: {fileID: 690893469}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: totalGems
       value: 6
@@ -12474,7 +12509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelToCheck
-      value: Level1-2
+      value: Level1-1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -12736,16 +12771,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: gemBadge
+      value: 
+      objectReference: {fileID: 1976283763}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelName
       value: 3 - The Third
       objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: timeBadge
+      value: 
+      objectReference: {fileID: 689510005}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelToLoad
       value: Level1-3
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelToCheck
-      value: Level1-3
+      value: Level1-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -14290,6 +14333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Badge_Time
       objectReference: {fileID: 0}
+    - target: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -14340,6 +14387,11 @@ PrefabInstance:
 --- !u!4 &1624068533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3088743542521486273, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
+  m_PrefabInstance: {fileID: 1624068532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1624068534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1409742222089445652, guid: e52048c6831979846b6c00e1b8012c09, type: 3}
   m_PrefabInstance: {fileID: 1624068532}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1782905218
@@ -14789,17 +14841,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Badge_Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14841,6 +14897,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
   m_PrefabInstance: {fileID: 1976283761}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1976283763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+  m_PrefabInstance: {fileID: 1976283761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2048678499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14853,17 +14914,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Badge_Gem
       objectReference: {fileID: 0}
+    - target: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_RootOrder
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14903,6 +14968,11 @@ PrefabInstance:
 --- !u!4 &2048678500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9064504430062267703, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
+  m_PrefabInstance: {fileID: 2048678499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2048678501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 890715964263014284, guid: 7bb2ccdbe1d9b7143bd380103a95677c, type: 3}
   m_PrefabInstance: {fileID: 2048678499}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &275981248154764685
@@ -15069,9 +15139,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: gemBadge
+      value: 
+      objectReference: {fileID: 701512230}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: levelName
       value: 1 - The begining
       objectReference: {fileID: 0}
+    - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
+      propertyPath: timeBadge
+      value: 
+      objectReference: {fileID: 1624068534}
     - target: {fileID: 5177907495308559952, guid: 43b0e4cf228b6eb4d845021382c1579a, type: 3}
       propertyPath: totalGems
       value: 2

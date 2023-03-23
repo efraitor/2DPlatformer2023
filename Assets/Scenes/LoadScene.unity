@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &123050692
+--- !u!1001 &27672922
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4291931394239046105, guid: 340bc45882cf5ab44ac7d7ccab7d563f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4291931394239046105, guid: 340bc45882cf5ab44ac7d7ccab7d563f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -178,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 4291931394239046105, guid: 340bc45882cf5ab44ac7d7ccab7d563f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291931394239046110, guid: 340bc45882cf5ab44ac7d7ccab7d563f, type: 3}
+      propertyPath: levelToLoad
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -271,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 1100022267}
     - target: {fileID: 8120566957803405644, guid: 9096e31908c10f24bb10baf2c1919129, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8120566957803405644, guid: 9096e31908c10f24bb10baf2c1919129, type: 3}
       propertyPath: m_LocalPosition.x
@@ -577,7 +581,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1382911470
 MonoBehaviour:
@@ -591,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde855fbd7a9d8d4bbcb86926ea1516e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelScene: Main_Menu
+  levelScene: LevelSelect
 --- !u!1 &1650645560
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1650645562
 BoxCollider2D:

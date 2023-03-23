@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a1e261c8b3ad646a81aaddcfdc9962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelect: 
+  levelSelect: LevelSelect
   mainMenu: Main_Menu
   pauseMenu: {fileID: 449114066}
   isPaused: 0
