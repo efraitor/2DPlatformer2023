@@ -52,6 +52,8 @@ public class LSManager : MonoBehaviour
     {
         //Hacemos fundido a negro
         LSUIController.sharedInstance.FadeToBlack();
+        //Reproducimos el sonido de cargar un nivel
+        AudioManager.sharedInstance.PlaySFX(4);
         //Esperamos un tiempo determinado
         yield return new WaitForSeconds(1f);
         //Cargamos el nivel al que queremos ir

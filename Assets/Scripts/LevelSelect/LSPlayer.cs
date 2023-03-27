@@ -97,5 +97,7 @@ public class LSPlayer : MonoBehaviour
         currentPoint = nextPoint;
         //Llamamos al método que oculta la información del nivel
         LSUIController.sharedInstance.HideInfo();
+        //Reproducimos el sonido de movernos por el mapa
+        AudioManager.sharedInstance.PlaySFX(5);
     }
 }

@@ -216,13 +216,15 @@ MonoBehaviour:
   moveSpeed: 8
   jumpForce: 12
   bounceForce: 8
+  stopInput: 0
   groundCheckPoint: {fileID: 8120566959238310733}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   knockBackLength: 0.25
   knockBackForce: 8
   isLeft: 0
+  reference: {fileID: 0}
 --- !u!95 &8120566957803405640
 Animator:
   serializedVersion: 4
