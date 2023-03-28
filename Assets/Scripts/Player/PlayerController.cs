@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     //Variable para conocer hacia donde mira el jugador
     public bool isLeft;
+    //Variable para saber cuando el jugador puede interactuar con los objetos
+    public bool canInteract = false;
 
     //Referencia al PauseMenu
     public PauseMenu reference;
@@ -164,7 +166,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //Método para que el jugador rebote 
-    public void Bounce()
+    public void Bounce(float bounceForce)
     {
         //Impulsamos al jugador rebotando
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
