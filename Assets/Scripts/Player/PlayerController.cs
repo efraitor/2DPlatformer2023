@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);//OverlapCircle(punto donde se genera el círculo, radio del círculo, layer a detectar)
 
                 //Si se pulsa el botón de salto
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") || Input.GetButtonDown("ButtonA"))
                 {
                     //Si el jugador está en el suelo
                     if (isGrounded)

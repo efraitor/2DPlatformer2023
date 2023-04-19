@@ -22,11 +22,13 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //Si pulsamos el botón de Intro
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("ButtonStart"))
         {
             //Pausamos el juego
             PauseUnpause();
         }
+        if (isPaused)
+            Input.GetButtonDown("ButtonA");
     }
 
     //Método para pausar o continuar el juego
