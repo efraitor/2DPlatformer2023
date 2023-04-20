@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource[] soundEffects;
 
     //Referencias a la música del juego
-    public AudioSource bgm, levelEndMusic;
+    public AudioSource bgm, levelEndMusic, bossMusic;
 
     //Hacemos el Singleton de este script
     public static AudioManager sharedInstance;
@@ -30,5 +30,22 @@ public class AudioManager : MonoBehaviour
         soundEffects[soundToPlay].pitch = Random.Range(.9f, 1.1f);
         //Reproducir el sonido pasado por parámetro
         soundEffects[soundToPlay].Play();
+    }
+
+    //Método para reproducir la música del Boss Final
+    public void PlayBossMusic()
+    {
+        //Paramos la música de fondo
+        bgm.Stop();
+        //Reproducimos la música del jefe
+        bossMusic.Play();
+    }
+    //Método para reproducir la música después del Boss Final
+    public void StopBossMusic()
+    {
+        //Paramos la música del jefe
+        bossMusic.Stop();
+        //Reproducimos la música de fondo
+        bgm.Play();
     }
 }

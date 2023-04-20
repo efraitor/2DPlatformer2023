@@ -124,7 +124,7 @@ public class BossTankController : MonoBehaviour
                             //Activamos los objetos tras derrotar al jefe final
                             winPlatform.SetActive(true);
                             //Llamamos al métod que restaura la música del juego
-                            //AudioManager.sharedInstance.StopBossMusic();
+                            AudioManager.sharedInstance.StopBossMusic();
                             //El enemigo pasa al estado de muerte
                             currentState = bossStates.ended;
                         }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 799771404}
   - component: {fileID: 799771405}
   - component: {fileID: 799771406}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: StompBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectible: {fileID: 6437739154318743352, guid: 258509b482dae484faa4b68df02c26af, type: 3}
   chanceToDrop: 25
+  bounceForce: 8
 --- !u!1 &8120566957803405646
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   knockBackLength: 0.25
   knockBackForce: 8
   isLeft: 0
+  canInteract: 0
   reference: {fileID: 0}
 --- !u!95 &8120566957803405640
 Animator:
