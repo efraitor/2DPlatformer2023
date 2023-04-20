@@ -96,7 +96,159 @@ public class BossTankController : MonoBehaviour
                 }
 
                 break;
+
+            //En el caso en el que currentState = 1
+            case bossStates.hurt:
+
+                //Si el contador de tiempo de daño aún no está vacío
+                if (hurtCounter > 0)
+                {
+                    //Hacemos decrecer el contador de tiempo de daño
+                    hurtCounter -= Time.deltaTime;
+
+                    //Si el contador de tiempo de daño se ha vaciado
+                    if (hurtCounter <= 0)
+                    {
+                        //El jefe final pasaría al estado de movimiento
+                        currentState = bossStates.moving;
+                        //Reiniciamos el contador de tiempo entre minas
+                        mineCounter = 0;
+
+                        //Si el enemigo ha sido derrotado
+                        if (isDefeated)
+                        {
+                            //Desactivamos al tanque
+                            theBoss.gameObject.SetActive(false);
+                            //Instanciamos el efecto de explosión
+                            Instantiate(explosion, theBoss.position, theBoss.rotation);
+                            //Activamos los objetos tras derrotar al jefe final
+                            winPlatform.SetActive(true);
+                            //Llamamos al métod que restaura la música del juego
+                            //AudioManager.sharedInstance.StopBossMusic();
+                            //El enemigo pasa al estado de muerte
+                            currentState = bossStates.ended;
+                        }
+                    }
+                }
+
+                break;
+
+            //En el caso en el que currentState = 2
+            case bossStates.moving:
+
+                //Si el enemigo se mueve a la derecha
+                if (movingRight)
+                {
+                    //Movemos al enemigo a una velocidad hacia la derecha
+                    theBoss.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+                    //Si el enemigo ha llegado al punto de la derecha
+                    if (theBoss.position.x > rightPoint.position.x)
+                    {
+                        //Usando la escala puedo hacer que gire todo el objeto
+                        theBoss.localScale = new Vector3(1f, 1f, 1f); //new Vector3(1, 1, 1) = Vector3.one
+                        //Dejará de moverse a la derecha
+                        movingRight = false;
+                        //Llamamos al método que frena al enemigo
+                        EndMovement();
+                    }
+                }
+                //Si por el contrario el enemigo se mueve a la izquierda
+                else
+                {
+                    //Movemos al enemigo a una velocidad hacia la izquierda
+                    theBoss.position -= new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+                    //Si el enemigo ha llegado al punto de la izquierda
+                    if (theBoss.position.x < leftPoint.position.x)
+                    {
+                        //Usando la escala puedo hacer que gire todo el objeto
+                        theBoss.localScale = new Vector3(-1f, 1f, 1f);
+                        //Dejará de moverse a la izquierda
+                        movingRight = true;
+                        //Llamamos al método que frena al enemigo
+                        EndMovement();
+                    }
+                }
+
+                //Hacemos decrecer el contador de tiempo entre minas
+                mineCounter -= Time.deltaTime;
+
+                //Si el contador de tiempo entre minas se ha vaciado
+                if (mineCounter <= 0)
+                {
+                    //Reiniciamos el contador de tiempo entre minas
+                    mineCounter = timeBetweenMines;
+                    //Instanciamos una mina
+                    Instantiate(mine, minePoint.position, minePoint.rotation);
+                }
+
+                break;
         }
 
+        //Para que este input solo funcione en el editor de Unity, no en la Build
+#if UNITY_EDITOR
+        //Si pulsamos la tecla H
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            //Llamamos al método que hace daño al jefe final
+            TakeHit();
+        }
+#endif
+    }
+
+    //Método para cuando el jefe final recibe daño
+    public void TakeHit()
+    {
+        //El boss final cambiará al estado de recibir daño
+        currentState = bossStates.hurt;
+        //Inicialiamos el contador de tiempo de daño
+        hurtCounter = hurtTime;
+        //Activamos el trigger de la animación de daño
+        anim.SetTrigger("Hit");
+
+        //Busca y mete en este momento todas las minas que hayan en la escena en ese array
+        BossTankMine[] mines = FindObjectsOfType<BossTankMine>();
+        //Si el array de minas contiene alguna mina
+        if (mines.Length > 0)
+        {
+            //Recorremos todo el array de minas
+            foreach (BossTankMine foundMine in mines)
+            {
+                //Llamamos al método que explota las minas
+                foundMine.Explode();
+            }
+        }
+
+        //Hacemos que el enemigo pierda una vida
+        health--;
+        //Si no le quedan vidas al enemigo
+        if (health <= 0)
+        {
+            //El enemigo ha sido derrotado
+            isDefeated = true;
+        }
+        //Si no ha sido derrotado
+        else
+        {
+            //Disminuimos el tiempo entre disparos
+            timeBetweenShots /= shotSpeedUp;
+            //Disminuimos el tiempo entre minas
+            timeBetweenMines /= mineSpeedUp;
+        }
+
+    }
+
+    //Método para finalizar el movimiento del jefe final
+    public void EndMovement()
+    {
+        //El enemigo pasará al estado de ataque
+        currentState = bossStates.shooting;
+        //Ponemos a 0 o reiniciamos el contador de tiempo entre disparos
+        shotCounter = 0f;
+        //Inicializamos el contador de tiempo entre disparos
+        shotCounter = timeBetweenShots;
+        //Activamos el trigger de la animación de parada de movimiento
+        anim.SetTrigger("StopMoving");
+        //Al terminar el movimiento volvemos a activar la HitBox del enemigo
+        hitBox.SetActive(true);
     }
 }
